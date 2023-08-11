@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="text">Sign Up</div>
+      <form id="signup-form">
+        <div class="field">
+          <span class="bx bxs-user"></span>
+          <input type="text" id="username" placeholder="Username" required />
+        </div>
+
+        <div class="field">
+          <span class="bx bxs-envelope"></span>
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+
+        <div class="field">
+          <span class="bx bxs-lock-alt"></span>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <h4>or Sign up with social platforms</h4>
+
+      <div class="social_icons">
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-discord-alt"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-dribbble"></i>
+      </div>
+
+      <div class="foot">
+        <a>Already have an account?</a>
+        <a href="./sign-in.html" class="in">Sign In</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const signupForm = document.getElementById("signup-form");
+
+        signupForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          const user = {
+            username: username,
+            email: email,
+            password: password,
+          };
+
+          // Kiểm tra xem người dùng đã tồn tại trong localStorage chưa
+          const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+          const userExists = existingUsers.some((u) => u.username === username);
+
+          if (userExists) {
+            alert(
+              "Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác."
+            );
+            return;
+          }
+
+          existingUsers.push(user);
+          localStorage.setItem("users", JSON.stringify(existingUsers));
+
+          alert("Đăng ký thành công!");
+          signupForm.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

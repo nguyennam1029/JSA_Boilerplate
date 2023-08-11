@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sign In</title>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="text">Sign In</div>
+      <form id="login-form">
+        <div class="field">
+          <span class="bx bxs-envelope"></span>
+          <input type="email" id="login-email" placeholder="Email" required />
+        </div>
+
+        <div class="field">
+          <span class="bx bxs-lock-alt"></span>
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button type="submit">Sign In</button>
+      </form>
+      <h4>or Sign up with social platforms</h4>
+
+      <div class="social_icons">
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-discord-alt"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-dribbble"></i>
+      </div>
+
+      <div class="foot">
+        <a>Already have an account?</a>
+        <a href="./sign-up.html" class="in">Sign Up</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("login-form");
+
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const loginEmail = document.getElementById("login-email").value;
+          const loginPassword = document.getElementById("login-password").value;
+
+          const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+          const matchedUser = existingUsers.find(
+            (u) => u.email === loginEmail && u.password === loginPassword
+          );
+
+          if (matchedUser) {
+            alert("Đăng nhập thành công!. Sẻ chuyển hướng qua trang chủ");
+            // Thực hiện hành động sau khi đăng nhập thành công
+            // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
+            window.location.href = "/index.html";
+          } else {
+            alert("Sai Email hoặc Password. Vui lòng thử lại.");
+          }
+
+          //   loginForm.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
