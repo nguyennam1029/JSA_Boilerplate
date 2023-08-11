@@ -4,12 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
-      <a href="./Auth/sign-up.html">Đăng kí</a>
-      <a href="./Auth/sign-in.html">Đăng nhâp</a>
-    </nav>
-    <h1 style="text-align: center; margin-top: 100px">Trang chủ</h1>
+    <nav></nav>
+    <body>
+      <header class="header">
+        <div class="nav">
+          <a href="#" class="logo">Logo</a>
+
+          <input type="checkbox" id="check" />
+          <label for="check" class="icons">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class="bx bx-x" id="close-icon"></i>
+          </label>
+
+          <nav class="navbar">
+            <a href="#" class="nav-item" style="--i: 0">Home</a>
+            <a href="#" class="nav-item" style="--i: 1">About</a>
+
+            <a href="#" class="nav-item" style="--i: 4">Contact</a>
+            <a class="nav-item" href="./Auth/sign-up.html">Sign Up</a>
+            <a class="nav-item" href="./Auth/sign-in.html">Sign In</a>
+            <span id="shoppingCart" class="nav-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                />
+              </svg>
+            </span>
+          </nav>
+        </div>
+        <h1>Home Page</h1>
+      </header>
+      <div class="container">
+        <h2 class="heading">List Product</h2>
+        <div class="list-product">
+          <div class="product-item">
+            <img
+              src="https://down-vn.img.susercontent.com/file/vn-11134207-23020-5gfvtjmgu6mvc9_tn"
+              alt=""
+            />
+            <div>
+              <p class="product-title">Áo thun tay lỡ phom unisex</p>
+              <div class="product-footer">
+                <span class="product-footer--price"><sup>đ</sup>299.000</span>
+                <span class="product-footer--sold">Đã bán 2.1k</span>
+                <span class="product-footer--shopping">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    <script src="./app.js"></script>
   </body>
 </html>
